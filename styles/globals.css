@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@config "../tailwind.config.js";
+
+:root {
+  --heroui-background: #ffffff;
+  --heroui-foreground: #000000;
+  --heroui-content1: #ffffff;
+  --heroui-content2: #f4f4f5;
+  --heroui-content3: #e4e4e7;
+  --heroui-content4: #d4d4d8;
+}
+
+/* HeroUIコンポーネントの背景を明るく */
+.heroui-input,
+.heroui-textarea,
+.heroui-select,
+.heroui-button {
+  background-color: white !important;
+}
+
+/* inputとtextareaの内部要素も明るく */
+[data-slot="input"],
+[data-slot="inner-wrapper"],
+[data-slot="input-wrapper"] {
+  background-color: rgb(211, 211, 211) !important;
+  color: #000000 !important;
+}
