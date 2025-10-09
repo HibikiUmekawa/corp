@@ -90,7 +90,7 @@ export default async function BlogListPage() {
       <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         ブログ一覧
       </h1>
-      <p className="mt-2 text-gray-600">最新の記事から順に表示します。</p>
+      <p className="mt-2 text-gray-600">ブログは現在公開準備中です</p>
 
       <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
