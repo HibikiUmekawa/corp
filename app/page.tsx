@@ -122,7 +122,6 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-
         {/* Case Studies */}
         <section className="bg-gray-50">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
@@ -147,9 +146,14 @@ export default function LandingPage() {
                 </p>
               </li>
               <li className="rounded-lg border border-gray-200 bg-white p-6">
-                <span className="font-semibold">クラウド環境構築支援</span>
+                <span className="font-semibold">
+                  AIチャットボットプラットフォーム「DOPPEL」
+                </span>
                 <p className="mt-2 text-gray-700">
-                  セキュリティ・コスト・可用性を考慮したクラウド設計とIaCによる再現性の高い運用。
+                  自社データを学習し、高精度なFAQ生成とチャット応答を実現するAIチャットボット。
+                  Azure
+                  OpenAIを活用し、高セキュリティかつ柔軟なカスタマイズが可能。
+                  導入サポート・分析支援機能により、企業業務の自動化と顧客対応品質の向上を支援。
                 </p>
               </li>
             </ul>
