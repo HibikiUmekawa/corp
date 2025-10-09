@@ -12,11 +12,11 @@ import remarkHtml from "remark-html";
 export const runtime = "nodejs";
 
 interface PageProps {
-  params: { blogId: string };
+  params: Promise<{ blogId: string }>;
 }
 
 export default async function BlogPage({ params }: PageProps) {
-  const { blogId } = params;
+  const { blogId } = await params;
 
   const mdPath = path.join(
     process.cwd(),

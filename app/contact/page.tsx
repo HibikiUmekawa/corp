@@ -123,10 +123,7 @@ export default function ContactPage() {
               placeholder="例：TS Prime株式会社"
               {...register("company")}
               className="mt-1"
-              classNames={{
-                input: "bg-transparent",
-                inputWrapper: "bg-default-100",
-              }}
+              variant="flat"
             />
           </div>
 
@@ -141,10 +138,7 @@ export default function ContactPage() {
               placeholder="例：山田 太郎"
               {...register("name", { required: "お名前は必須です" })}
               className="mt-1"
-              classNames={{
-                input: "bg-transparent",
-                inputWrapper: "bg-default-100",
-              }}
+              variant="flat"
             />
             {errors.name && (
               <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
@@ -162,10 +156,7 @@ export default function ContactPage() {
               placeholder="例：info@example.com"
               {...register("email", { required: "メールアドレスは必須です" })}
               className="mt-1"
-              classNames={{
-                input: "bg-transparent",
-                inputWrapper: "bg-default-100",
-              }}
+              variant="flat"
             />
             {errors.email && (
               <p className="text-sm text-red-500 mt-1">
@@ -185,10 +176,7 @@ export default function ContactPage() {
               placeholder="例：090-1234-5678"
               {...register("phone")}
               className="mt-1"
-              classNames={{
-                input: "bg-transparent",
-                inputWrapper: "bg-default-100",
-              }}
+              variant="flat"
             />
           </div>
 
@@ -208,10 +196,7 @@ export default function ContactPage() {
                 required: "お問い合わせ内容は必須です",
               })}
               className="mt-1"
-              classNames={{
-                input: "bg-transparent",
-                inputWrapper: "bg-default-100",
-              }}
+              variant="flat"
             />
             {errors.inquiry && (
               <p className="text-sm text-red-500 mt-1">
