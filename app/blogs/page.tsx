@@ -18,7 +18,16 @@ interface BlogListItem {
 async function getPosts(): Promise<BlogListItem[]> {
   const postsDir = path.join(process.cwd(), "public", "blogs", "posts");
   const imagesDir = path.join(process.cwd(), "public", "blogs", "images");
-  const files = await fs.readdir(postsDir);
+
+  let files: string[] = [];
+
+  try {
+    files = await fs.readdir(postsDir);
+  } catch {
+    // ディレクトリが存在しない場合は空配列
+    return [];
+  }
+
   const mdFiles = files.filter((f) => f.endsWith(".md"));
 
   // Build a case-insensitive map of available images: basename(lowercased) -> actual filename
