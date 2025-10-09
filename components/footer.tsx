@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-import { navLinks } from "@/lib/common/data";
-
 function XIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -73,58 +71,6 @@ export default function Footer() {
                 <span className="sr-only">GitHub</span>
               </Link>
             </div>
-          </div>
-          <div className="space-y-4">
-            <h3 className="font-medium">製品</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  className="text-muted-foreground hover:text-foreground"
-                  href="#features"
-                >
-                  機能
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-muted-foreground hover:text-foreground"
-                  href="#pricing"
-                >
-                  料金プラン
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-muted-foreground hover:text-foreground"
-                  href="#"
-                >
-                  ロードマップ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-muted-foreground hover:text-foreground"
-                  href="#"
-                >
-                  アップデート情報
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <h3 className="font-medium">リソース</h3>
-            <ul className="space-y-2 text-sm">
-              {navLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    className="text-muted-foreground hover:text-foreground"
-                    href={link.href}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
