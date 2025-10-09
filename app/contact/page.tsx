@@ -161,7 +161,11 @@ export default function ContactPage() {
               type="email"
               placeholder="例：info@example.com"
               {...register("email", { required: "メールアドレスは必須です" })}
-              className="mt-1 bg-white"
+              className="mt-1"
+              classNames={{
+                input: "bg-transparent",
+                inputWrapper: "bg-default-100",
+              }}
             />
             {errors.email && (
               <p className="text-sm text-red-500 mt-1">
@@ -180,7 +184,11 @@ export default function ContactPage() {
               type="tel"
               placeholder="例：090-1234-5678"
               {...register("phone")}
-              className="mt-1 bg-white"
+              className="mt-1"
+              classNames={{
+                input: "bg-transparent",
+                inputWrapper: "bg-default-100",
+              }}
             />
           </div>
 
@@ -199,7 +207,11 @@ export default function ContactPage() {
               {...register("inquiry", {
                 required: "お問い合わせ内容は必須です",
               })}
-              className="mt-1 bg-white"
+              className="mt-1"
+              classNames={{
+                input: "bg-transparent",
+                inputWrapper: "bg-default-100",
+              }}
             />
             {errors.inquiry && (
               <p className="text-sm text-red-500 mt-1">
