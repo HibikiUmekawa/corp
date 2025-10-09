@@ -84,15 +84,6 @@ export default function Header() {
                 </Link>
               ))}
             </div>
-            <div className="border-t p-4">
-              <Link
-                className="inline-flex items-center rounded-md bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800"
-                href="#contact"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                無料で始める
-              </Link>
-            </div>
           </aside>
         </>
       )}

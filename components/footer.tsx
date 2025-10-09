@@ -34,7 +34,7 @@ export default function Footer() {
   return (
     <footer className="w-full border-t py-12 md:py-16 lg:py-20 text-gray-700">
       <div className="container px-4 md:px-6">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <svg
@@ -124,43 +124,6 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <h3 className="font-medium">会社情報</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  className="text-muted-foreground hover:text-foreground"
-                  href="#"
-                >
-                  会社概要
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-muted-foreground hover:text-foreground"
-                  href="#"
-                >
-                  採用情報
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-muted-foreground hover:text-foreground"
-                  href="#"
-                >
-                  プライバシーポリシー
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-muted-foreground hover:text-foreground"
-                  href="#"
-                >
-                  利用規約
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
