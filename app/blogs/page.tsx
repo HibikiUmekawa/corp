@@ -1,8 +1,9 @@
 import fs from "fs/promises";
+import path from "path";
+
 import matter from "gray-matter";
 import Image from "next/image";
 import Link from "next/link";
-import path from "path";
 
 export const runtime = "nodejs";
 
@@ -22,10 +23,13 @@ async function getPosts(): Promise<BlogListItem[]> {
 
   // Build a case-insensitive map of available images: basename(lowercased) -> actual filename
   let imageMap: Record<string, string> = {};
+
   try {
     const imageFiles = await fs.readdir(imagesDir);
+
     for (const f of imageFiles) {
       const base = path.parse(f).name.toLowerCase();
+
       imageMap[base] = f;
     }
   } catch {
@@ -33,6 +37,7 @@ async function getPosts(): Promise<BlogListItem[]> {
   }
 
   const items: BlogListItem[] = [];
+
   for (const file of mdFiles) {
     const slug = file.replace(/\.md$/, "");
     const raw = await fs.readFile(path.join(postsDir, file), "utf-8");
@@ -45,6 +50,7 @@ async function getPosts(): Promise<BlogListItem[]> {
     const imageSrc = imageFile
       ? `/blogs/images/${imageFile}`
       : "/placeholder.jpg";
+
     items.push({
       slug,
       title: (data as any)?.title || slug.replace(/-/g, " "),
@@ -60,6 +66,7 @@ async function getPosts(): Promise<BlogListItem[]> {
     }
     if (a.date) return -1;
     if (b.date) return 1;
+
     return a.slug.localeCompare(b.slug);
   });
 
@@ -84,11 +91,11 @@ export default async function BlogListPage() {
           >
             <div className="mb-4">
               <Image
-                src={post.imageSrc}
                 alt={post.title}
-                width={640}
-                height={360}
                 className="h-auto w-full rounded-md object-cover"
+                height={360}
+                src={post.imageSrc}
+                width={640}
               />
             </div>
             <h2 className="text-lg font-semibold text-gray-900">
@@ -104,8 +111,8 @@ export default async function BlogListPage() {
             )}
             <div className="mt-4">
               <Link
-                href={`/blogs/${post.slug}`}
                 className="text-sm font-medium text-black hover:underline"
+                href={`/blogs/${post.slug}`}
               >
                 記事を読む →
               </Link>

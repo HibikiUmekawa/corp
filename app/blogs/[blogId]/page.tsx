@@ -1,10 +1,11 @@
-import clsx from "clsx";
 import fs from "fs/promises";
+import path from "path";
+
+import clsx from "clsx";
 import matter from "gray-matter";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import path from "path";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
@@ -23,10 +24,11 @@ export default async function BlogPage({ params }: PageProps) {
     "public",
     "blogs",
     "posts",
-    `${blogId}.md`
+    `${blogId}.md`,
   );
 
   let fileRaw: string;
+
   try {
     fileRaw = await fs.readFile(mdPath, "utf-8");
   } catch {
@@ -48,7 +50,7 @@ export default async function BlogPage({ params }: PageProps) {
     <article>
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-8">
         <nav className="mb-6 text-sm text-gray-500">
-          <Link href="/blogs" className="hover:underline">
+          <Link className="hover:underline" href="/blogs">
             ブログ一覧
           </Link>
           <span className="mx-2">/</span>
@@ -57,11 +59,11 @@ export default async function BlogPage({ params }: PageProps) {
 
         <div className="mb-6 overflow-hidden rounded-lg border border-gray-200 bg-white">
           <Image
-            src={`/blogs/images/${blogId}.png`}
             alt={title}
-            width={1200}
-            height={630}
             className="h-auto w-full object-cover"
+            height={630}
+            src={`/blogs/images/${blogId}.png`}
+            width={1200}
           />
         </div>
 
@@ -90,13 +92,13 @@ export default async function BlogPage({ params }: PageProps) {
         </header>
 
         <div
+          dangerouslySetInnerHTML={{ __html: html }}
           className={clsx(
             "prose prose-neutral max-w-none",
             "prose-headings:scroll-mt-20",
             "prose-img:rounded-md prose-img:shadow",
-            "prose-a:text-blue-600 hover:prose-a:underline"
+            "prose-a:text-blue-600 hover:prose-a:underline",
           )}
-          dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
     </article>

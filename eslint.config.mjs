@@ -51,8 +51,8 @@ export default [
       "plugin:prettier/recommended",
       "plugin:react-hooks/recommended",
       "plugin:jsx-a11y/recommended",
-      "plugin:@next/next/recommended"
-    )
+      "plugin:@next/next/recommended",
+    ),
   ),
   {
     files: ["**/*.ts", "**/*.tsx"],
@@ -69,7 +69,7 @@ export default [
     languageOptions: {
       globals: {
         ...Object.fromEntries(
-          Object.entries(globals.browser).map(([key]) => [key, "off"])
+          Object.entries(globals.browser).map(([key]) => [key, "off"]),
         ),
         ...globals.node,
       },

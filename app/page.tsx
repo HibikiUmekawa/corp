@@ -22,8 +22,8 @@ export default function LandingPage() {
             </p>
             <div className="mt-8">
               <a
-                href="/contact"
                 className="inline-flex items-center rounded-md bg-black px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800"
+                href="/contact"
               >
                 まずは相談する（無料）
               </a>
@@ -204,9 +204,9 @@ export default function LandingPage() {
               </p>
               <div className="mt-6">
                 <a
+                  className="inline-flex items-center rounded-md bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100"
                   href="/contact"
                   target="_blank"
-                  className="inline-flex items-center rounded-md bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100"
                 >
                   メールで問い合わせる
                 </a>

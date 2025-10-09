@@ -1,9 +1,10 @@
 "use client";
 
-import { navLinks } from "@/lib/common/data";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+
+import { navLinks } from "@/lib/common/data";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,15 +14,16 @@ export default function Header() {
       <div className="flex h-16 items-center justify-between mx-12">
         {/* ---- Logo ---- */}
         <div className="flex items-center gap-2">
-          <span
+          <Link
             className="
               text-3xl font-bold font-kay
               bg-[linear-gradient(#00EFC1,#00C8CB)]
               bg-clip-text text-transparent
             "
+            href="/"
           >
             TS Prime
-          </span>
+          </Link>
         </div>
 
         {/* ---- Desktop Nav ---- */}
@@ -29,8 +31,8 @@ export default function Header() {
           {navLinks.map((item) => (
             <Link
               key={item.label}
-              href={item.href}
               className="text-sm font-medium hover:text-primary"
+              href={item.href}
             >
               {item.label}
             </Link>
@@ -39,9 +41,9 @@ export default function Header() {
 
         {/* ---- Mobile Menu Button ---- */}
         <button
+          aria-label="メニューを開く"
           className="md:hidden"
           onClick={() => setIsMenuOpen(true)}
-          aria-label="メニューを開く"
         >
           <Menu className="h-6 w-6" />
         </button>
@@ -51,14 +53,14 @@ export default function Header() {
       {isMenuOpen && (
         <>
           <div
+            aria-hidden="true"
             className="fixed inset-0 z-50 bg-black/40"
             onClick={() => setIsMenuOpen(false)}
-            aria-hidden="true"
           />
           <aside
+            aria-modal="true"
             className="fixed right-0 top-0 z-[51] h-screen w-[85vw] max-w-sm bg-white shadow-xl transition-transform duration-200 ease-out translate-x-0"
             role="dialog"
-            aria-modal="true"
           >
             <div className="flex items-center justify-between border-b px-6 py-3">
               <span className="font-bold text-lg">メニュー</span>
@@ -74,8 +76,8 @@ export default function Header() {
               {navLinks.map((item) => (
                 <Link
                   key={item.label}
-                  href={item.href}
                   className="text-base font-medium hover:text-primary"
+                  href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
@@ -84,8 +86,8 @@ export default function Header() {
             </div>
             <div className="border-t p-4">
               <Link
-                href="#contact"
                 className="inline-flex items-center rounded-md bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800"
+                href="#contact"
                 onClick={() => setIsMenuOpen(false)}
               >
                 無料で始める

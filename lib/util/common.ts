@@ -6,6 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 export function normalize(value: number, min: number, max: number): number {
   if (max === min) return 0;
+
   return (value - min) / (max - min);
 }
 export const smoothScrollBy = (y: number, duration: number) => {
@@ -31,6 +32,7 @@ export const smoothScrollBy = (y: number, duration: number) => {
 export const scrollToBottom = (delay?: number) => {
   const scroll = () => {
     const targetY = document.documentElement.scrollHeight - window.innerHeight;
+
     smoothScrollBy(targetY - window.scrollY, 300);
   };
 

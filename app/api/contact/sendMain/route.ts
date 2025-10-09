@@ -66,7 +66,9 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("メール送信エラー:", error);
+
     return NextResponse.json(
       { success: false, message: "メール送信に失敗しました。" },
       { status: 500 }
