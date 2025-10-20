@@ -147,7 +147,7 @@ export default function LandingPage() {
               </li>
               <li className="rounded-lg border border-gray-200 bg-white p-6">
                 <span className="font-semibold">
-                  AIチャットボットプラットフォーム「DOPPEL」
+                  AIチャットボットプラットフォームアプリ
                 </span>
                 <p className="mt-2 text-gray-700">
                   自社データを学習し、高精度なFAQ生成とチャット応答を実現するAIチャットボット。
