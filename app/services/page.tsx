@@ -18,10 +18,10 @@ export default function ServicesPage() {
           </p>
           <div className="mt-4">
             <a
-              href="https://sc.alt-prime.com/"
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center rounded-md bg-black px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800"
+              href="https://sc.alt-prime.com/"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               事業サイトへ
             </a>

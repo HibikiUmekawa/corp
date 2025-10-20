@@ -94,38 +94,39 @@ export default async function BlogListPage() {
 
       <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
-          <li
-            key={post.slug}
-            className="rounded-lg border border-gray-200 bg-white p-6"
-          >
-            <div className="mb-4">
-              <Image
-                alt={post.title}
-                className="h-auto w-full rounded-md object-cover"
-                height={360}
-                src={post.imageSrc}
-                width={640}
-              />
-            </div>
-            <h2 className="text-lg font-semibold text-gray-900">
-              <Link href={`/blogs/${post.slug}`}>{post.title}</Link>
-            </h2>
-            {post.date && (
-              <time className="mt-1 block text-sm text-gray-500">
-                {new Date(post.date).toLocaleDateString("ja-JP")}
-              </time>
-            )}
-            {post.excerpt && (
-              <p className="mt-3 line-clamp-3 text-gray-700">{post.excerpt}</p>
-            )}
-            <div className="mt-4">
-              <Link
-                className="text-sm font-medium text-black hover:underline"
-                href={`/blogs/${post.slug}`}
-              >
-                記事を読む →
-              </Link>
-            </div>
+          <li key={post.slug}>
+            <Link
+              className="flex flex-col h-full rounded-lg border border-gray-200 bg-white p-6 transition-all hover:shadow-lg hover:border-gray-300"
+              href={`/blogs/${post.slug}`}
+            >
+              <div className="mb-4 flex-shrink-0">
+                <Image
+                  alt={post.title}
+                  className="h-48 w-full rounded-md object-cover"
+                  height={360}
+                  src={post.imageSrc}
+                  width={640}
+                />
+              </div>
+              <div className="flex flex-col flex-grow">
+                <h2 className="text-lg font-semibold text-gray-900 line-clamp-2 min-h-[3.5rem]">
+                  {post.title}
+                </h2>
+                {post.date && (
+                  <time className="block text-sm text-gray-500">
+                    {new Date(post.date).toLocaleDateString("ja-JP")}
+                  </time>
+                )}
+                {post.excerpt && (
+                  <p className="mt-3 line-clamp-3 text-gray-700 flex-grow">
+                    {post.excerpt}
+                  </p>
+                )}
+                <div className="mt-4 text-sm font-medium text-black">
+                  記事を読む →
+                </div>
+              </div>
+            </Link>
           </li>
         ))}
       </ul>

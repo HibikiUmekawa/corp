@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     if (!data.email || !data.name || !data.inquiry) {
       return NextResponse.json(
         { success: false, message: "必須項目が入力されていません。" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -63,7 +63,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json(
       { success: true, message: "お問い合わせを送信しました。" },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     // eslint-disable-next-line no-console
@@ -71,7 +71,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json(
       { success: false, message: "メール送信に失敗しました。" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

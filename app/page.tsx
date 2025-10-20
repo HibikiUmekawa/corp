@@ -61,10 +61,10 @@ export default function LandingPage() {
               </div>
               <div className="rounded-lg border border-gray-200 p-6">
                 <h3 className="text-lg font-semibold text-gray-900">
-                  DX・BPOコンサルと受託の一体運営
+                  DX・BPOコンサルとIT実働部隊が一体となって推進
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  DX/BPOの上流コンサルから、システム開発・運用まで一気通貫で伴走。戦略と実装が乖離しません。
+                  DX/BPOのコンサルティングから、システム開発・運用まで一気通貫で伴走。以来からプロダクト開発までワンストップで効率化できます
                 </p>
               </div>
               <div className="rounded-lg border border-gray-200 p-6">
@@ -72,7 +72,7 @@ export default function LandingPage() {
                   優秀な複業人材と圧倒的なPM力を武器に、安定したプロダクト輩出力を確保
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  複業エンジニア×専任PMの体制で、要件定義から実装・QA・運用まで一気通貫。期日と品質を両立し、継続的なリリースを実現します。
+                  複業エンジニア×PMの体制で、要件定義から実装・QA・運用まで一気通貫。期日と品質を両立し、継続的なリリースを実現します。
                 </p>
               </div>
             </div>

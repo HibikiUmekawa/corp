@@ -74,6 +74,7 @@
     "@next/eslint-plugin-next": "15.3.4",
     "@react-types/shared": "3.30.0",
     "@tailwindcss/postcss": "4.1.11",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/firebase": "^2.4.32",
     "@types/node": "20.5.7",
     "@types/nodemailer": "^7.0.2",
