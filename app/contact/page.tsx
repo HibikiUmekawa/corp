@@ -34,16 +34,34 @@ export default function ContactPage() {
         body: JSON.stringify(formData),
       });
 
-      addToast({
-        title: res.status === 200 ? 'お問い合わせを送信しました。' : 'メールの送信に失敗しました。',
-        color: res.status === 200 ? 'success' : 'danger',
-      });
-      reset();
+      if (res.status === 200) {
+        // 成功時
+        addToast({
+          title: '送信完了',
+          description: 'お問い合わせを送信しました。担当者より折り返しご連絡いたします。',
+          color: 'success',
+        });
+        reset(); // 成功時のみフォームをリセット
+      } else {
+        // APIエラー時
+        const errorData = await res.json().catch(() => ({}));
+
+        addToast({
+          title: '送信失敗',
+          description:
+            errorData.message ||
+            'メールの送信に失敗しました。しばらく経ってから再度お試しください。',
+          color: 'danger',
+        });
+      }
     } catch (error) {
+      // ネットワークエラー時
       // eslint-disable-next-line no-console
       console.error(error);
       addToast({
-        title: '送信に失敗しました。再度お試しください。',
+        title: 'エラーが発生しました',
+        description:
+          'ネットワークエラーが発生しました。インターネット接続を確認して再度お試しください。',
         color: 'danger',
       });
     }
