@@ -36,7 +36,7 @@ const techStack: TechCategory[] = [
   },
   {
     title: 'フロントエンド',
-    description: 'モダンなフロントエンド技術で高品質なUIを実現',
+    description: 'AI生成と親和性の高いモダンなフロントエンド技術で高品質なUIを実現',
     items: [{ name: 'Next.js', icon: 'nextdotjs', color: '#000000' }],
   },
   {
