@@ -1,11 +1,11 @@
-import fs from "fs/promises";
-import path from "path";
+import fs from 'fs/promises';
+import path from 'path';
 
-import matter from "gray-matter";
-import Image from "next/image";
-import Link from "next/link";
+import matter from 'gray-matter';
+import Image from 'next/image';
+import Link from 'next/link';
 
-export const runtime = "nodejs";
+export const runtime = 'nodejs';
 
 interface BlogListItem {
   slug: string;
@@ -16,8 +16,8 @@ interface BlogListItem {
 }
 
 async function getPosts(): Promise<BlogListItem[]> {
-  const postsDir = path.join(process.cwd(), "public", "blogs", "posts");
-  const imagesDir = path.join(process.cwd(), "public", "blogs", "images");
+  const postsDir = path.join(process.cwd(), 'public', 'blogs', 'posts');
+  const imagesDir = path.join(process.cwd(), 'public', 'blogs', 'images');
 
   let files: string[] = [];
 
@@ -28,7 +28,10 @@ async function getPosts(): Promise<BlogListItem[]> {
     return [];
   }
 
-  const mdFiles = files.filter((f) => f.endsWith(".md"));
+  const mdFiles = files.filter(
+    // @ts-ignore
+    (f) => f.endsWith('.md') && !f.startsWith('.') && f !== 'CLAUDE.md',
+  );
 
   // Build a case-insensitive map of available images: basename(lowercased) -> actual filename
   let imageMap: Record<string, string> = {};
@@ -48,21 +51,19 @@ async function getPosts(): Promise<BlogListItem[]> {
   const items: BlogListItem[] = [];
 
   for (const file of mdFiles) {
-    const slug = file.replace(/\.md$/, "");
-    const raw = await fs.readFile(path.join(postsDir, file), "utf-8");
+    const slug = file.replace(/\.md$/, '');
+    const raw = await fs.readFile(path.join(postsDir, file), 'utf-8');
     const { content, data } = matter(raw);
-    const body = typeof content === "string" ? content : "";
+    const body = typeof content === 'string' ? content : '';
     const blocks = body.trim().split(/\n\n+/);
     const firstBlock = blocks.at(0) ?? body.trim();
-    const firstParagraph = firstBlock.replace(/[#>*_`\-]/g, "").slice(0, 140);
+    const firstParagraph = firstBlock.replace(/[#>*_`\-]/g, '').slice(0, 140);
     const imageFile = imageMap[slug.toLowerCase()];
-    const imageSrc = imageFile
-      ? `/blogs/images/${imageFile}`
-      : "/placeholder.jpg";
+    const imageSrc = imageFile ? `/blogs/images/${imageFile}` : '/placeholder.jpg';
 
     items.push({
       slug,
-      title: (data as any)?.title || slug.replace(/-/g, " "),
+      title: (data as any)?.title || slug.replace(/-/g, ' '),
       date: (data as any)?.date,
       excerpt: firstParagraph,
       imageSrc,
@@ -87,9 +88,7 @@ export default async function BlogListPage() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-      <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-        ブログ一覧
-      </h1>
+      <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">ブログ一覧</h1>
       <p className="mt-2 text-gray-600">ブログは現在公開準備中です</p>
 
       <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -114,17 +113,13 @@ export default async function BlogListPage() {
                 </h2>
                 {post.date && (
                   <time className="block text-sm text-gray-500">
-                    {new Date(post.date).toLocaleDateString("ja-JP")}
+                    {new Date(post.date).toLocaleDateString('ja-JP')}
                   </time>
                 )}
                 {post.excerpt && (
-                  <p className="mt-3 line-clamp-3 text-gray-700 flex-grow">
-                    {post.excerpt}
-                  </p>
+                  <p className="mt-3 line-clamp-3 text-gray-700 flex-grow">{post.excerpt}</p>
                 )}
-                <div className="mt-4 text-sm font-medium text-black">
-                  記事を読む →
-                </div>
+                <div className="mt-4 text-sm font-medium text-black">記事を読む →</div>
               </div>
             </Link>
           </li>

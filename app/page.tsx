@@ -1,9 +1,9 @@
-import Footer from "@/components/footer";
+import Footer from '@/components/footer';
 
 export const metadata = {
-  title: "福岡の複業人材で高品質なAI開発 | DX・BPO・アプリ/WEB受託",
+  title: '福岡の複業人材で高品質なAI開発 | DX・BPO・アプリ/WEB受託',
   description:
-    "福岡拠点の複業人材チームが、DX/BPOコンサルからAIアプリ・モバイル・WEB開発、Salesforce運用・自動化、クラウド構築まで一気通貫で支援。実績: Kaika、学習塾予約管理、動画学習プラットフォームなど。",
+    '福岡拠点の複業人材チームが、DX/BPOコンサルからAIアプリ・モバイル・WEB開発、Salesforce運用・自動化、クラウド構築まで一気通貫で支援。実績: Kaika、学習塾予約管理、動画学習プラットフォームなど。',
 };
 
 export default function LandingPage() {
@@ -52,9 +52,7 @@ export default function LandingPage() {
             </h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-3">
               <div className="rounded-lg border border-gray-200 p-6">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  格安×高品質のAI開発
-                </h3>
+                <h3 className="text-lg font-semibold text-gray-900">格安×高品質のAI開発</h3>
                 <p className="mt-2 text-gray-700">
                   複業/複業の精鋭メンバーにより、コストを抑えつつ成果品質を担保。短サイクルで価値検証と改善を回します。
                 </p>
@@ -87,34 +85,26 @@ export default function LandingPage() {
             </h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
               <div className="rounded-lg border border-gray-200 p-6">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  DX推進支援
-                </h3>
+                <h3 className="text-lg font-semibold text-gray-900">DX推進支援</h3>
                 <p className="mt-2 text-gray-700">
                   業務可視化・要件定義から、業務システム刷新、SaaS活用、データ連携/自動化まで一気通貫で伴走します。
                 </p>
               </div>
               <div className="rounded-lg border border-gray-200 p-6">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  BPO（業務委託・運用代行）
-                </h3>
+                <h3 className="text-lg font-semibold text-gray-900">BPO（業務委託・運用代行）</h3>
                 <p className="mt-2 text-gray-700">
                   システム運用・保守、データ整備、コンテンツ運用などを標準化し、継続的な効率化と品質向上を実現します。
                 </p>
               </div>
               <div className="rounded-lg border border-gray-200 p-6">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  モバイルアプリ開発
-                </h3>
+                <h3 className="text-lg font-semibold text-gray-900">モバイルアプリ開発</h3>
                 <p className="mt-2 text-gray-700">
                   iOS/Android
                   のクロスプラットフォーム開発により、迅速なリリースと継続的改善を両立します。
                 </p>
               </div>
               <div className="rounded-lg border border-gray-200 p-6">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  WEBサービス開発
-                </h3>
+                <h3 className="text-lg font-semibold text-gray-900">WEBサービス開発</h3>
                 <p className="mt-2 text-gray-700">
                   新規サービスの立ち上げから既存改善まで、UI/UX、API、クラウドまでフルスタックで対応します。
                 </p>
@@ -130,29 +120,22 @@ export default function LandingPage() {
             </h2>
             <ul className="mt-6 space-y-4 text-gray-800">
               <li className="rounded-lg border border-gray-200 bg-white p-6">
-                <span className="font-semibold">
-                  動画学習プラットフォームの構築・運用
-                </span>
+                <span className="font-semibold">動画学習プラットフォームの構築・運用</span>
                 <p className="mt-2 text-gray-700">
                   コンテンツ配信、受講管理、学習分析を備えたSaaS型プラットフォームを構築。
                 </p>
               </li>
               <li className="rounded-lg border border-gray-200 bg-white p-6">
-                <span className="font-semibold">
-                  個別指導学習塾における予約管理システム
-                </span>
+                <span className="font-semibold">個別指導学習塾における予約管理システム</span>
                 <p className="mt-2 text-gray-700">
                   教室運営の効率化と顧客体験向上を両立する予約・決済・通知の一元化。
                 </p>
               </li>
               <li className="rounded-lg border border-gray-200 bg-white p-6">
-                <span className="font-semibold">
-                  AIチャットボットプラットフォームアプリ
-                </span>
+                <span className="font-semibold">AIチャットボットプラットフォームアプリ</span>
                 <p className="mt-2 text-gray-700">
                   自社データを学習し、高精度なFAQ生成とチャット応答を実現するAIチャットボット。
-                  Azure
-                  OpenAIを活用し、高セキュリティかつ柔軟なカスタマイズが可能。
+                  Azure OpenAIを活用し、高セキュリティかつ柔軟なカスタマイズが可能。
                   導入サポート・分析支援機能により、企業業務の自動化と顧客対応品質の向上を支援。
                 </p>
               </li>

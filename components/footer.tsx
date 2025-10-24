@@ -1,4 +1,5 @@
-import Link from "next/link";
+import Link from 'next/link';
+import { Logo } from './icons';
 
 function XIcon({ className }: { className?: string }) {
   return (
@@ -49,19 +50,7 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <svg
-                className="h-6 w-6 text-primary"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
-                <polyline points="13 2 13 9 20 9" />
-              </svg>
+              <Logo />
               <span className="text-xl font-bold">TS Prime</span>
             </div>
             <p className="text-sm text-muted-foreground">

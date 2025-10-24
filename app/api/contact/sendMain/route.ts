@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
-import { createTransport } from "nodemailer";
-import { Options } from "nodemailer/lib/mailer";
+import { NextResponse } from 'next/server';
+import { createTransport } from 'nodemailer';
+import { Options } from 'nodemailer/lib/mailer';
 
 /**
  * POST /api/contact/sendMail
@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     // --- バリデーション ---
     if (!data.email || !data.name || !data.inquiry) {
       return NextResponse.json(
-        { success: false, message: "必須項目が入力されていません。" },
+        { success: false, message: '必須項目が入力されていません。' },
         { status: 400 },
       );
     }
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     // --- Nodemailer トランスポーター設定（Gmail 使用）---
     const transporter = createTransport({
       port: 465,
-      host: "smtp.gmail.com",
+      host: 'smtp.gmail.com',
       auth: {
         user: process.env.MAIL_SENDER,
         pass: process.env.MAIL_PASS,
@@ -42,12 +42,12 @@ export async function POST(req: Request) {
           <h3>■ お名前</h3>
           <p>${data.name}</p>
 
-          ${data.company ? `<h3>■ 会社名</h3><p>${data.company}</p>` : ""}
+          ${data.company ? `<h3>■ 会社名</h3><p>${data.company}</p>` : ''}
 
           <h3>■ メールアドレス</h3>
           <p>${data.email}</p>
 
-          ${data.phone ? `<h3>■ 電話番号</h3><p>${data.phone}</p>` : ""}
+          ${data.phone ? `<h3>■ 電話番号</h3><p>${data.phone}</p>` : ''}
 
           <h3>■ お問い合わせ内容</h3>
           <p style="white-space: pre-wrap;">${data.inquiry}</p>
@@ -62,15 +62,15 @@ export async function POST(req: Request) {
     await transporter.sendMail(mailData);
 
     return NextResponse.json(
-      { success: true, message: "お問い合わせを送信しました。" },
+      { success: true, message: 'お問い合わせを送信しました。' },
       { status: 200 },
     );
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error("メール送信エラー:", error);
+    console.error('メール送信エラー:', error);
 
     return NextResponse.json(
-      { success: false, message: "メール送信に失敗しました。" },
+      { success: false, message: 'メール送信に失敗しました。' },
       { status: 500 },
     );
   }

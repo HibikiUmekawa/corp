@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { Button } from "@heroui/button";
-import { Checkbox } from "@heroui/checkbox";
-import { Input, Textarea } from "@heroui/input";
-import { addToast } from "@heroui/toast";
-import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { Button } from '@heroui/button';
+import { Checkbox } from '@heroui/checkbox';
+import { Input, Textarea } from '@heroui/input';
+import { addToast } from '@heroui/toast';
+import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 type ContactFormValues = {
   company?: string;
@@ -28,26 +28,23 @@ export default function ContactPage() {
 
   const sendMail = async (formData: ContactFormValues) => {
     try {
-      const res = await fetch("/api/contact/sendMain", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('/api/contact/sendMain', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
       addToast({
-        title:
-          res.status === 200
-            ? "お問い合わせを送信しました。"
-            : "メールの送信に失敗しました。",
-        color: res.status === 200 ? "success" : "danger",
+        title: res.status === 200 ? 'お問い合わせを送信しました。' : 'メールの送信に失敗しました。',
+        color: res.status === 200 ? 'success' : 'danger',
       });
       reset();
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(error);
       addToast({
-        title: "送信に失敗しました。再度お試しください。",
-        color: "danger",
+        title: '送信に失敗しました。再度お試しください。',
+        color: 'danger',
       });
     }
     setLoading(false);
@@ -72,9 +69,7 @@ export default function ContactPage() {
         >
           TS Prime
         </p>
-        <h1 className="mt-6 text-3xl font-bold text-gray-800">
-          お問い合わせフォーム
-        </h1>
+        <h1 className="mt-6 text-3xl font-bold text-gray-800">お問い合わせフォーム</h1>
         <p className="mt-2 text-gray-600">
           ご質問・ご相談・お見積りなど、お気軽にお問い合わせください。
         </p>
@@ -94,7 +89,7 @@ export default function ContactPage() {
             id="company"
             placeholder="例：TS Prime株式会社"
             type="text"
-            {...register("company")}
+            {...register('company')}
             className="mt-1"
             variant="flat"
           />
@@ -109,13 +104,11 @@ export default function ContactPage() {
             id="name"
             placeholder="例：山田 太郎"
             type="text"
-            {...register("name", { required: "お名前は必須です" })}
+            {...register('name', { required: 'お名前は必須です' })}
             className="mt-1"
             variant="flat"
           />
-          {errors.name && (
-            <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
-          )}
+          {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>}
         </div>
 
         {/* メールアドレス */}
@@ -127,13 +120,11 @@ export default function ContactPage() {
             id="email"
             placeholder="例：info@example.com"
             type="email"
-            {...register("email", { required: "メールアドレスは必須です" })}
+            {...register('email', { required: 'メールアドレスは必須です' })}
             className="mt-1"
             variant="flat"
           />
-          {errors.email && (
-            <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
-          )}
+          {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>}
         </div>
 
         {/* 電話番号 */}
@@ -145,7 +136,7 @@ export default function ContactPage() {
             id="phone"
             placeholder="例：090-1234-5678"
             type="tel"
-            {...register("phone")}
+            {...register('phone')}
             className="mt-1"
             variant="flat"
           />
@@ -160,17 +151,13 @@ export default function ContactPage() {
             id="inquiry"
             placeholder="お問い合わせ内容をご入力ください。"
             rows={5}
-            {...register("inquiry", {
-              required: "お問い合わせ内容は必須です",
+            {...register('inquiry', {
+              required: 'お問い合わせ内容は必須です',
             })}
             className="mt-1"
             variant="flat"
           />
-          {errors.inquiry && (
-            <p className="text-sm text-red-500 mt-1">
-              {errors.inquiry.message}
-            </p>
-          )}
+          {errors.inquiry && <p className="text-sm text-red-500 mt-1">{errors.inquiry.message}</p>}
         </div>
 
         {/* 同意 */}
@@ -181,26 +168,19 @@ export default function ContactPage() {
           <div className="flex items-center">
             <Checkbox
               id="agree"
-              {...register("agree", { required: "内容に同意してください" })}
+              {...register('agree', { required: '内容に同意してください' })}
               classNames={{
-                base: "text-sm text-gray-700",
-                wrapper: "border-2 rounded-lg border-gray-300",
+                base: 'text-sm text-gray-700',
+                wrapper: 'border-2 rounded-lg border-gray-300',
               }}
             >
               上記内容に同意します
             </Checkbox>
           </div>
-          {errors.agree && (
-            <p className="text-sm text-red-500 mt-1">{errors.agree.message}</p>
-          )}
+          {errors.agree && <p className="text-sm text-red-500 mt-1">{errors.agree.message}</p>}
         </div>
 
-        <Button
-          className="w-full font-bold"
-          color="primary"
-          isLoading={loading}
-          type="submit"
-        >
+        <Button className="w-full font-bold" color="primary" isLoading={loading} type="submit">
           送信する
         </Button>
       </form>
