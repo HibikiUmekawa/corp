@@ -1,4 +1,5 @@
 import Footer from '@/components/footer';
+import Link from 'next/link';
 
 export const metadata = {
   title: '福岡の複業人材で高品質なAI開発 | DX・BPO・アプリ/WEB受託',
@@ -190,13 +191,13 @@ export default function LandingPage() {
                 現状の課題や実現したいことをお聞かせください。最適な体制と進め方をご提案します。
               </p>
               <div className="mt-6">
-                <a
+                <Link
                   className="inline-flex items-center rounded-md bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100"
                   href="/contact"
                   target="_blank"
                 >
                   メールで問い合わせる
-                </a>
+                </Link>
               </div>
             </div>
           </div>
